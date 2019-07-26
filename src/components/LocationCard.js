@@ -19,7 +19,7 @@ export default function LocationCard ({location}) {
       <h3>{location.name}</h3>
       <h4>Type: {location.type}</h4>
       <p>{location.residents.length} Residents</p>
-      {console.log(location)} 
+      {/* {console.log(location)}  */}
     </LocationContainer>
   )
 }

@@ -1,5 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+import EpisodeCard from './EpisodeCard';
+
+const EpisodeDiv = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    margin: 5px auto;
+`;
 
 export default function EpisodeList() {
 
@@ -19,9 +30,8 @@ export default function EpisodeList() {
 
 
     return (
-        <div>
-            {console.log(episodeList)}
-            <h1>Enter Episodes here!</h1>
-        </div>
+        <EpisodeDiv>
+            {episodeList.map((episode, index) => <EpisodeCard episode={episode} key={index}/>)}
+        </EpisodeDiv>
     )
 }
