@@ -17,8 +17,9 @@ export default function LocationCard ({location}) {
   return (
     <LocationContainer>
       <h3>{location.name}</h3>
-      <h4>{location.planet}</h4>
+      <h4>Type: {location.type}</h4>
       <p>{location.residents.length} Residents</p>
+      {console.log(location)} 
     </LocationContainer>
   )
 }
