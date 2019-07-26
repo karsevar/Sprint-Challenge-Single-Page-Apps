@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import LocationCard from './LocationCard';
+
+const LocationDiv = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    margin: 5px auto;
+`;
+
 
 export default function LocationsList() {
 
@@ -22,9 +32,9 @@ export default function LocationsList() {
     }, [])
 
     return  (
-        <div>
+        <LocationDiv>
             {locations.map((location, index) => <LocationCard location={location} key={index}/>)}
-        </div>
+        </LocationDiv>
     )
 
 }
