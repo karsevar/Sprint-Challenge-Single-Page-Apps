@@ -29,7 +29,7 @@ export default function CharacterList() {
     <section className='character-list grid-view'>
       {/* {console.log(characters)} */}
       {/* Everything looks perfect result.data.results populated the characters variable */}
-      {characters.map(character => <CharacterCard character={character} />)} 
+      {characters.map((character, index) => <CharacterCard character={character} key={index} />)} 
     </section>
   );
 
