@@ -25,13 +25,90 @@ In this challenge, you will create a Single Page Application complete with Clien
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
 - [ ] Explain benefit(s) using `client-side routing`?
-> Answer:
+
+> Answer: The benefits of client-side routing can be seen after the initial web page load, where it usually takes a little longer than the legacy method (server side routing), page loads to different navigation addresses are nearly instantaneous, since during the initial load all of the information for the webpage itself has been downloaded onto the local device. This new paradigm of routing has given rise to fully responsive one page applications that only need servers for the initial load and not for routing to different pages. 
+
 - [ ] What does AJAX stand for?
-> Answer:
+
+> Answer: AJAX is short for asynchronous JavaScript and XML.
+
 - [ ] What are `controlled components` in React?
-> Answer:
+
+> Answer: The defining characteristic of controlled components is a React state (created by either this.state or useState) being attached to the component's underlying user inputs. With regards to forms a controlled component looks like the following: 
+
+``` 
+export default function SignupForm() {
+  console.time("useInput: start");
+  const [username, setUsername, handleUsername] = useInput("", "username");
+  const [password, setPassword, handlePassword] = useInput("", "password");
+  const [email, setEmail, handleEmail] = useInput("", "email");
+  const [isEU, setEU] = useLocalStorage(false);
+  console.timeEnd("useInput: end");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    // console.log("user state", user);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <fieldset>
+        <legend>Signup</legend>
+        <button onClick={() => setEU(!isEU)}>EU switch</button>
+        <div className="form-group row">
+          <label for="username" className="col-sm-2 col-form-label">
+            Username
+            <div className="col-sm-10">
+              <input
+                type="text"
+                className="form-control"
+                name="username"
+                placeholder="Enter your username"
+                value={username}
+                onChange={handleUsername}
+              />
+            </div>
+          </label>
+        </div>
+        {isEU && (
+          <div className="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              name="email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              value={email}
+              onChange={handleEmail}
+            />
+          </div>
+        )}
+        <div className="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            className="form-control"
+            name="password"
+            placeholder="Password"
+            onChange={handlePassword}
+            value={password}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </fieldset>
+    </form>
+  );
+}
+
+```
+
+As you can see, the state for password, name, and email inputs within this form is controlled by the useState() variables username, password, and eamil. 
+
 - [ ] Name three tools/libraries for making AJAX requests.
-> Answer:
+> Answer: Axios, Fetch api, and jQuery.
 
 
 ## Project Set Up
