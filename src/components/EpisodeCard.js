@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LocationContainer = styled.div`
+const EpisodeContainer = styled.div`
   box-shadow: 1px 1px 9px 2px #888888;
   border-radius: 5px;
   width: 350px;
@@ -38,14 +38,13 @@ const CharacterParagraph = styled.p`
   margin-top: 5px;
 `;
 
-export default function LocationCard ({location}) {
-  // image={image}
-  return (
-    <LocationContainer>
-      <CharacterH3>{location.name}</CharacterH3>
-      <CharacterH4>{location.type} - {location.dimension}</CharacterH4>
-      <CharacterParagraph>{location.residents.length} Residents</CharacterParagraph>
-      {/* {console.log(location)}  */}
-    </LocationContainer>
-  )
+export default function EpisodeCard({episode}) {
+    return (
+        <EpisodeContainer>
+            {/* {console.log(episode)} */}
+            <CharacterH3>{episode.name}</CharacterH3>
+            <CharacterH4>Episode: {episode.episode}</CharacterH4>
+            <CharacterH4>Air Date: {episode.air_date}</CharacterH4>
+        </EpisodeContainer>
+    )
 }
